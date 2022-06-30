@@ -34,9 +34,11 @@ export default function BreweryDetail() {
             <strong>{brewery.country}</strong>
           </p>
           <p>{brewery.phone}</p>
+          {brewery.website_url && (
           <p>
             <a href={brewery.website_url}>Visit Website</a>
           </p>
+          )}
         </>
       )}
       <Link to="/breweries">Back to Breweries</Link>
