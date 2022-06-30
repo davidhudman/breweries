@@ -14,15 +14,39 @@ export default function BreweryList() {
     }
   };
 
+  // create search submit handler
+  const handleSearchSubmit = (event) => {
+    event.preventDefault();
+    // get value of search input
+    const search = document.getElementById("search-input").value;
+    // if search is not empty
+    if (search && search.length > 0) {
+      // make a request to the API with the search term
+      axios
+        .get(`https://api.openbrewerydb.org/breweries/search?query=${search}`)
+        .then((response) => {
+          // set state as first ten breweries from response
+          setBreweries(response.data);
+        });
+    }
+  };
+
   getBreweries();
 
   return (
     <main>
       <h1>Brewery Catalog</h1>
       <form>
-        <input type='text' name='search' placeholder='Find a brewery' />
-        <button type='submit'>Search</button>
-        <button type='reset'>Reset</button>
+        <input
+          type="text"
+          name="search"
+          placeholder="Find a brewery"
+          id="search-input"
+        />
+        <button type="submit" onClick={(event) => handleSearchSubmit(event)}>
+          Search
+        </button>
+        <button type="reset">Reset</button>
       </form>
       <ul>
         {breweries &&
