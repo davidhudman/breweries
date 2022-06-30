@@ -26,15 +26,16 @@ export default function BreweryDetail() {
         <>
           <h1>{brewery.name}</h1>
           <p>
-              {brewery.city}, {brewery.state}
+            {brewery.city}, {brewery.state}
             <br />
             {brewery.country}
           </p>
-          <p>{brewery.phone}</p>
+          <p>Phone: {brewery.phone}</p>
+
           {brewery.website_url && (
-          <p>
-            <a href={brewery.website_url}>Visit Website</a>
-          </p>
+            <p>
+              <a href={brewery.website_url}>Visit Website</a>
+            </p>
           )}
         </>
       )}
