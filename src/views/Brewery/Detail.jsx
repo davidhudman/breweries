@@ -26,12 +26,9 @@ export default function BreweryDetail() {
         <>
           <h1>{brewery.name}</h1>
           <p>
-            <strong>
               {brewery.city}, {brewery.state}
-            </strong>
-          </p>
-          <p>
-            <strong>{brewery.country}</strong>
+            <br />
+            {brewery.country}
           </p>
           <p>{brewery.phone}</p>
           {brewery.website_url && (
