@@ -1,6 +1,7 @@
 import { Link, useParams } from "react-router-dom";
 import React, { useState } from "react";
 import axios from "axios";
+import { Card } from "react-bootstrap";
 
 export default function BreweryDetail() {
   const { id } = useParams();
@@ -22,22 +23,29 @@ export default function BreweryDetail() {
 
   return (
     <main>
+      {/* render brewery details as bootstrap card */}
       {brewery && (
-        <>
-          <h1>{brewery.name}</h1>
-          <p>
-            {brewery.city}, {brewery.state}
-            <br />
-            {brewery.country}
-          </p>
-          <p>Phone: {brewery.phone}</p>
-
-          {brewery.website_url && (
-            <p>
-              <a href={brewery.website_url}>Visit Website</a>
-            </p>
-          )}
-        </>
+        <Card>
+          <Card.Header>{brewery.name}</Card.Header>
+          <Card.Body>
+            <Card.Text>
+              <p>
+                <strong>Location:</strong> {brewery.city}, {brewery.state}
+                <br />
+                {brewery.country}
+              </p>
+              {brewery.website_url && (
+                <p>
+                  <strong>Website:</strong>{" "}
+                  <a href={brewery.website_url}>{brewery.website_url}</a>
+                </p>
+              )}
+              <p>
+                <strong>Phone:</strong> {brewery.phone}
+              </p>
+            </Card.Text>
+          </Card.Body>
+        </Card>
       )}
       <Link to="/breweries">Back to Breweries</Link>
     </main>
