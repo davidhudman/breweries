@@ -1,20 +1,22 @@
-import './App.css';
+import "./App.css";
 import {
   BrowserRouter as Router,
   Routes,
   Route,
   Navigate,
-} from 'react-router-dom';
-import BreweryList from './views/Brewery/List';
-import BreweryDetail from './views/Brewery/Detail';
+} from "react-router-dom";
+import BreweryList from "./views/Brewery/List";
+import BreweryDetail from "./views/Brewery/Detail";
+
+import "bootstrap/dist/css/bootstrap.min.css";
 
 function App() {
   return (
     <Router>
       <Routes>
-        <Route path='/breweries/:id' element={<BreweryDetail />} />
-        <Route path='/breweries' element={<BreweryList />} />
-        <Route path='/' element={<Navigate to='/breweries' replace />} />
+        <Route path="/breweries/:id" element={<BreweryDetail />} />
+        <Route path="/breweries" element={<BreweryList />} />
+        <Route path="/" element={<Navigate to="/breweries" replace />} />
       </Routes>
     </Router>
   );
