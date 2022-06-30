@@ -53,7 +53,7 @@ export default function BreweryList() {
           breweries.map((brewery) => {
             return (
               <li key={brewery.id}>
-                <Link to={`/brewery/${brewery.id}`}>{brewery.name}</Link> -{" "}
+                <Link to={`/breweries/${brewery.id}`}>{brewery.name}</Link> -{" "}
                 {brewery.city}, {brewery.state}
               </li>
             );
