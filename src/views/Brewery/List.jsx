@@ -1,7 +1,6 @@
 import { Link } from "react-router-dom";
 import React, { useState } from "react";
 import axios from "axios";
-// bootstrap
 import { Container, Row, Col, Card } from "react-bootstrap";
 
 export default function BreweryList() {
